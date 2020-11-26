@@ -6,19 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class Menu_page extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu_page);
+
+        Intent goMenu = getIntent();
     }
 
-    // Called when the user taps the StartPage_Start Button
-    public void goMenuPage(View view){
-        Intent goMenu = new Intent(this, Menu_page.class);
-        startActivity(goMenu);
+    /*
+    //for go level 1 (new game), uncomment if use and set button onClick
+    public void goNewGame(View gNG){
+        Intent newGame = new Intent(this, );
+        startActivity(newGame);
     }
+    */
 
     // Hide Navigation
     @Override
