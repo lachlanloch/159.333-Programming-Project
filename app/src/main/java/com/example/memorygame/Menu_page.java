@@ -23,6 +23,24 @@ public class Menu_page extends AppCompatActivity {
         startActivity(newGame);
     }
     */
+    // for go achievement page
+    public void goAchi(View gAchi){
+        Intent achievement = new Intent(this, Achi_page.class);
+        startActivity(achievement);
+    }
+
+    // for go setting page
+    public void goSetting(View gSet){
+        Intent setting = new Intent(this, Setting_page.class);
+        startActivity(setting);
+    }
+
+    // for go about page
+    public void goAbout(View gAb){
+        Intent about = new Intent(this, About_page.class);
+        startActivity(about);
+    }
+
 
     // Hide Navigation
     @Override

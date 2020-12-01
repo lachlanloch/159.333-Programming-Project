@@ -2,4 +2,7 @@
     <string name="app_name">MemoryGame</string>
     <string name="StartPage_Start">Start</string>
     <string name="NewGame">New Game</string>
+    <string name="AboutPage">About</string>
+    <string name="AchiPage">Achievement</string>
+    <string name="SettingPage">Setting</string>
 </resources>
