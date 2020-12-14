@@ -5,24 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
-public class Setting_page extends AppCompatActivity {
+public class Test_LvPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting_page);
+        setContentView(R.layout.activity_test__lv_page);
 
         hideSystemUI();
-        Intent goSetting = getIntent();
+        Intent goNewGame = getIntent();
+        // for pop up window
+        Button b = (Button) findViewById(R.id.button7);
+        b.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(Test_LvPage.this,Pop.class));
+            }
+        });
     }
 
-    //go back button
-    public void goBack(View gBack){
-        Intent goBackPage = new Intent(this, Menu_page.class);
-        startActivity(goBackPage);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); // fade in/out anim
-    }
+
+
 
     // Hide Navigation
     private void hideSystemUI() {

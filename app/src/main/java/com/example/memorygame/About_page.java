@@ -16,6 +16,13 @@ public class About_page extends AppCompatActivity {
         hideSystemUI();
         Intent about = getIntent();
     }
+
+    //go back button
+    public void goBack(View gBack){
+        Intent goBackPage = new Intent(this, Menu_page.class);
+        startActivity(goBackPage);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); // fade in/out anim
+    }
     // Hide Navigation
     private void hideSystemUI() {
         View decorView = getWindow().getDecorView();

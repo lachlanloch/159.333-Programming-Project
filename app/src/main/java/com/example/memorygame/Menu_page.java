@@ -12,18 +12,17 @@ public class Menu_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_page);
-
         hideSystemUI();
         Intent goMenu = getIntent();
     }
 
-    /*
+
     //for go level 1 (new game), uncomment if use and set button onClick
     public void goNewGame(View gNG){
-        Intent newGame = new Intent(this, );
+        Intent newGame = new Intent(this, Test_LvPage.class);
         startActivity(newGame);
     }
-    */
+
     // for go achievement page
     public void goAchi(View gAchi){
         Intent achievement = new Intent(this, Achi_page.class);

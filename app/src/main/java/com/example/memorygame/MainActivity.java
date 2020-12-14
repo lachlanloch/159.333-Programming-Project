@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        hideSystemUI();
+        hideSystemUI();//call UI function below
 
     }
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void goMenuPage(View view){
         Intent goMenu = new Intent(this, Menu_page.class);
         startActivity(goMenu);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); // // fade in/out anim
     }
 
     // Hide Navigation

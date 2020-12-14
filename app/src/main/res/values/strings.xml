@@ -5,4 +5,7 @@
     <string name="AboutPage">About</string>
     <string name="AchiPage">Achievement</string>
     <string name="SettingPage">Setting</string>
+    <string name="GoBack">Back</string>
+    <string name="LvP_Test_T">Pass</string>
+    <string name="LvP_Test_F">Fail</string>
 </resources>
