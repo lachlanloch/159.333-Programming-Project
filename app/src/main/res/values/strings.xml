@@ -6,6 +6,7 @@
     <string name="AchiPage">Achievement</string>
     <string name="SettingPage">Setting</string>
     <string name="GoBack">Back</string>
-    <string name="LvP_Test_T">Pass</string>
-    <string name="LvP_Test_F">Fail</string>
+    <string name="Level_01">1</string>
+    <string name="Level_02">2</string>
+    <string name="Level_03">3</string>
 </resources>

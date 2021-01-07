@@ -1,3 +1,8 @@
+//The menu page
+//New game to get in the level choose page.
+//setting page to set sounds(may delete)
+//achi page to view the achivement
+//about page to view the infor about game/creator
 package com.example.memorygame;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +24,9 @@ public class Menu_page extends AppCompatActivity {
 
     //for go level 1 (new game), uncomment if use and set button onClick
     public void goNewGame(View gNG){
-        Intent newGame = new Intent(this, Test_LvPage.class);
+        Intent newGame = new Intent(this, Level_page.class);
         startActivity(newGame);
     }
-
     // for go achievement page
     public void goAchi(View gAchi){
         Intent achievement = new Intent(this, Achi_page.class);
