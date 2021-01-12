@@ -9,4 +9,7 @@
     <string name="Level_01">1</string>
     <string name="Level_02">2</string>
     <string name="Level_03">3</string>
+    <string name="Popup_win_0">WINNER !</string>
+    <string name="Pop2Menu">Menu</string>
+    <string name="Popup_lose_0">Time Run Out !</string>
 </resources>

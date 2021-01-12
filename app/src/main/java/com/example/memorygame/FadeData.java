@@ -76,15 +76,15 @@ public class FadeData {
     /**
      * 游戏每个关卡的总时间
      */
-    private static final int[] LEVEL_TOTAL_TIME = new int[]{0, 60, 45};
+    private static final int[] LEVEL_TOTAL_TIME = new int[]{15, 30, 30};
     /**
      * 游戏每个关卡的观看时间
      */
-    private static final int[] LEVEL_VIEW_TIME = new int[]{60, 45, 60};
+    private static final int[] LEVEL_VIEW_TIME = new int[]{5, 5, 5};
     /**
      * 游戏每个关卡的显示的卡片数
      */
-    private static final int[] LEVEL_CARD_NUM = new int[]{4, 8, 10};
+    private static final int[] LEVEL_CARD_NUM = new int[]{6, 8, 10};
     private static SparseArray<GameLevel> gameLevelSparseArray = new SparseArray<>();
 
 

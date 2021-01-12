@@ -41,6 +41,7 @@ public class ViewDataActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_view_data);
+        hideSystemUI();
         time = (TextView) findViewById(R.id.time);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -53,7 +54,7 @@ public class ViewDataActivity extends AppCompatActivity {
         }
 
         //设置数据源
-        final ArrayList<LinkItem> dataList = FadeData.getData(gameLevel.getCardNum());
+        final ArrayList<LinkItem> dataList = FadeData.getData(10);
         viewDataAdapter = new ViewDataAdapter(dataList);
         recyclerView.setAdapter(viewDataAdapter);
 
@@ -69,17 +70,16 @@ public class ViewDataActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent = new Intent(com.example.memorygame.ViewDataActivity.this, MainActivity.class);
+                Intent intent = new Intent(ViewDataActivity.this, Gaming_page.class);
                 intent.putParcelableArrayListExtra(GAME_DATA, dataList);
                 intent.putExtra(GAME_LEVEL, finalLevel);
-                com.example.memorygame.ViewDataActivity.this.startActivity(intent);
-                com.example.memorygame.ViewDataActivity.this.finish();
+                ViewDataActivity.this.startActivity(intent);
+                ViewDataActivity.this.finish();
             }
         };
         //Start timer
         countDownTimerSuspended.start();
     }
-
 
     @Override
     public void onResume() {
@@ -104,5 +104,12 @@ public class ViewDataActivity extends AppCompatActivity {
             countDownTimerSuspended.cancel();
         }
     }
-
+    // Hide Navigation
+    private void hideSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        // Hide the nav bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+    }
 }

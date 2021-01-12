@@ -33,12 +33,6 @@ public class Menu_page extends AppCompatActivity {
         startActivity(achievement);
     }
 
-    // for go setting page
-    public void goSetting(View gSet){
-        Intent setting = new Intent(this, Setting_page.class);
-        startActivity(setting);
-    }
-
     // for go about page
     public void goAbout(View gAb){
         Intent about = new Intent(this, About_page.class);

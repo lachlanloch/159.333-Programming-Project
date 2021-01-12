@@ -4,6 +4,7 @@ package com.example.memorygame;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -20,7 +21,7 @@ import java.util.List;
 import static com.example.memorygame.ViewDataActivity.GAME_LEVEL;
 
 public class Gaming_page extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Gaming_Page";
 
     private TextView time;
     private LinkAdapter linkAdapter;
@@ -38,10 +39,9 @@ public class Gaming_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_page);
+        setContentView(R.layout.activity_gaming_page); //error
 
         hideSystemUI();
-        Intent goNewGame = getIntent();
         this.clearedKeyList = new ArrayList<>();
         time = (TextView) findViewById(R.id.time);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -63,7 +63,7 @@ public class Gaming_page extends AppCompatActivity {
         linkAdapter.setOnItemClickListener(new LinkAdapter.OnItemClickListener<LinkItem>() {
             @Override
             public void onItemClick(int position, LinkItem linkItem) {
-                //每个卡片的点击事件
+
                 if (preLinkItem == null) {
                     //两个不一样，重新填充数据
                     preLinkItem = linkItem;
@@ -77,15 +77,15 @@ public class Gaming_page extends AppCompatActivity {
                     linkAdapter.notifyDataSetChanged();
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
-                        Toast.makeText(Gaming_page.this, "gamer win", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Gaming_page.this, Popup_win.class));
                     }
                 }
             }
         });
         recyclerView.setAdapter(linkAdapter);
 
-        //关卡级别大于1才开始倒计时
-        if (level > 1) {
+        //关卡级别大于0才开始倒计时
+        if (level > 0) {
             time.setVisibility(View.VISIBLE);
             long intervalTime = gameLevel.getIntervalTime();
             countDownTimerSuspended = new CountDownTimerSuspended(gameLevel.getTotalTime() * intervalTime, intervalTime) {
@@ -102,10 +102,10 @@ public class Gaming_page extends AppCompatActivity {
                     }
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
-                        Toast.makeText(Gaming_page.this, "gamer win", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Gaming_page.this, Popup_win.class));
                     } else {
                         // TODO: the gamer failed
-                        Toast.makeText(Gaming_page.this, "game over", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Gaming_page.this, Popup_lose.class));
                     }
                 }
             };
@@ -114,9 +114,6 @@ public class Gaming_page extends AppCompatActivity {
         }
 
     }
-
-
-
 
     @Override
     public void onResume() {
@@ -154,11 +151,7 @@ public class Gaming_page extends AppCompatActivity {
             dataList.set(i, linkItem);
         }
     }
-    //choose level
-    public void goLv_01(View gLv_01){
-        Intent Lv_01 = new Intent(this,ViewDataActivity.class);
-        startActivity(Lv_01);
-    }
+
 
 
     // Hide Navigation
