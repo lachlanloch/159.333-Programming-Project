@@ -7,6 +7,8 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 
+import static com.example.memorygame.ViewDataActivity.GAME_LEVEL;
+
 public class Popup_win extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,17 @@ public class Popup_win extends Activity {
         startActivity(goMenu);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); // // fade in/out anim
     }
+
+    public void goNext(View view) {
+        int level = 1;
+        Intent getIntent = getIntent();
+        level = getIntent.getIntExtra(GAME_LEVEL, 1);
+        FadeData.initGameLevels();
+        Intent goNext = new Intent(this, ViewDataActivity.class);
+        goNext.putExtra(GAME_LEVEL, level+1);
+        startActivity(goNext);
+    }
+
     // Hide Navigation
     private void hideSystemUI() {
         View decorView = getWindow().getDecorView();

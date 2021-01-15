@@ -27,4 +27,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popup_lose_0" />
+
+    <Button
+        android:id="@+id/pop_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goRestart"
+        android:text="@string/Popup_lose_1"
+        app:layout_constraintBottom_toTopOf="@+id/popLose2Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popup_lose_0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-//This activity for level choosing.
+//This activity for level chose.
 package com.example.memorygame;
 
 import android.content.Intent;

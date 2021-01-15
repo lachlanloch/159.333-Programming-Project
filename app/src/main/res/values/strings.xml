@@ -12,4 +12,6 @@
     <string name="Popup_win_0">WINNER !</string>
     <string name="Pop2Menu">Menu</string>
     <string name="Popup_lose_0">Time Run Out !</string>
+    <string name="Popup_lose_1">Retry</string>
+    <string name="Popup_win_1">Next</string>
 </resources>

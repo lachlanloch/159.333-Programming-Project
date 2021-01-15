@@ -28,6 +28,7 @@ public class Gaming_page extends AppCompatActivity {
     private LinkItem preLinkItem;
     private List<Integer> clearedKeyList;
 
+
     /**
      * Timer
      */
@@ -60,6 +61,7 @@ public class Gaming_page extends AppCompatActivity {
         }
         //填充游戏数据
         linkAdapter = new LinkAdapter(dataList);
+        int finalLevel1 = level; //using for intent to the pop
         linkAdapter.setOnItemClickListener(new LinkAdapter.OnItemClickListener<LinkItem>() {
             @Override
             public void onItemClick(int position, LinkItem linkItem) {
@@ -77,7 +79,9 @@ public class Gaming_page extends AppCompatActivity {
                     linkAdapter.notifyDataSetChanged();
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
-                        startActivity(new Intent(Gaming_page.this, Popup_win.class));
+                        Intent pop_win = new Intent(Gaming_page.this, Popup_win.class);
+                        pop_win.putExtra(GAME_LEVEL, finalLevel1);// for win to next level
+                        startActivity(pop_win);
                     }
                 }
             }
@@ -88,11 +92,12 @@ public class Gaming_page extends AppCompatActivity {
         if (level > 0) {
             time.setVisibility(View.VISIBLE);
             long intervalTime = gameLevel.getIntervalTime();
+            int finalLevel = level;
             countDownTimerSuspended = new CountDownTimerSuspended(gameLevel.getTotalTime() * intervalTime, intervalTime) {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    time.setText(String.format("The left time: %d s", millisUntilFinished / 1000));
+                    time.setText(String.format("Level %d, The left time: %d s", finalLevel, millisUntilFinished / 1000));
                 }
 
                 @Override
@@ -102,10 +107,14 @@ public class Gaming_page extends AppCompatActivity {
                     }
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
-                        startActivity(new Intent(Gaming_page.this, Popup_win.class));
+                        Intent pop_win = new Intent(Gaming_page.this, Popup_win.class);
+                        pop_win.putExtra(GAME_LEVEL, finalLevel); // for win to next level
+                        startActivity(pop_win);
                     } else {
                         // TODO: the gamer failed
-                        startActivity(new Intent(Gaming_page.this, Popup_lose.class));
+                        Intent pop_lose = new Intent(Gaming_page.this, Popup_lose.class);
+                        pop_lose.putExtra(GAME_LEVEL, finalLevel);// for lose to retry this level
+                        startActivity(pop_lose);
                     }
                 }
             };

@@ -76,7 +76,7 @@ public class FadeData {
     /**
      * 游戏每个关卡的总时间
      */
-    private static final int[] LEVEL_TOTAL_TIME = new int[]{15, 30, 30};
+    private static final int[] LEVEL_TOTAL_TIME = new int[]{25, 25, 25};
     /**
      * 游戏每个关卡的观看时间
      */

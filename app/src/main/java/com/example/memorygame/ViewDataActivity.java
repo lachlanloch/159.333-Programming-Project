@@ -54,7 +54,7 @@ public class ViewDataActivity extends AppCompatActivity {
         }
 
         //设置数据源
-        final ArrayList<LinkItem> dataList = FadeData.getData(10);
+        final ArrayList<LinkItem> dataList = FadeData.getData(gameLevel.getCardNum());
         viewDataAdapter = new ViewDataAdapter(dataList);
         recyclerView.setAdapter(viewDataAdapter);
 
@@ -65,7 +65,7 @@ public class ViewDataActivity extends AppCompatActivity {
             @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onTick(long millisUntilFinished) {
-                time.setText(String.format("The left time: %d s", millisUntilFinished / 1000));
+                time.setText(String.format("Level %d, The left time: %d s",finalLevel, millisUntilFinished / 1000));
             }
 
             @Override
