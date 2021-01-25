@@ -3,14 +3,9 @@ package com.example.memorygame;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +36,9 @@ public class Gaming_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gaming_page); //error
+
+        AchiStatus accheck = ((AchiStatus)getApplicationContext());
+        int ac_00 = accheck.getAc_00();
 
         hideSystemUI();
         this.clearedKeyList = new ArrayList<>();
@@ -79,6 +77,7 @@ public class Gaming_page extends AppCompatActivity {
                     linkAdapter.notifyDataSetChanged();
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
+                        if(ac_00 != 1){ accheck.setAc_00(1);}
                         Intent pop_win = new Intent(Gaming_page.this, Popup_win.class);
                         pop_win.putExtra(GAME_LEVEL, finalLevel1);// for win to next level
                         startActivity(pop_win);

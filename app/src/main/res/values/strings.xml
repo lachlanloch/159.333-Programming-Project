@@ -14,4 +14,6 @@
     <string name="Popup_lose_0">Time Run Out !</string>
     <string name="Popup_lose_1">Retry</string>
     <string name="Popup_win_1">Next</string>
+    <string name="achitest">Not Achi</string>
+    <string name="achitest2">Achi!!!</string>
 </resources>
