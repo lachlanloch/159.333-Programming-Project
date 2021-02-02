@@ -1,6 +1,5 @@
 //The menu page
 //New game to get in the level choose page.
-//setting page to set sounds(may delete)
 //achi page to view the achivement
 //about page to view the infor about game/creator
 package com.example.memorygame;
@@ -18,7 +17,7 @@ public class Menu_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_page);
         hideSystemUI();
-        Intent goMenu = getIntent();
+        //Intent goMenu = getIntent();
     }
 
 

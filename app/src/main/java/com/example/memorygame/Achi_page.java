@@ -5,30 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Achi_page extends AppCompatActivity {
     private TextView textView;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achi_page);
-
-        AchiStatus actest = ((AchiStatus)getApplicationContext());
-        int ac111 = actest.getAc_00();
-        textView = (TextView)findViewById(R.id.textView4);
-
-        if(ac111 == 1){
-            textView.setText(R.string.achitest2);
-        }else{
-            textView.setText(R.string.achitest);
-        }
+        achiView();
 
         hideSystemUI();
         Intent goAchi = getIntent();
     }
 
+    public void achiView(){
 
+
+        AchiStatus actest = ((AchiStatus)getApplicationContext());
+        int ac_01 = actest.getAc_00();
+
+        imageView = (ImageView)findViewById(R.id.achiview0);
+        if(ac_01 == 1){
+            imageView.setImageResource(R.mipmap.achi_card_01);
+        }else{
+            imageView.setImageResource(R.mipmap.achi_front);
+        }
+
+    }
 
     //go back button
     public void goBack(View gBack){

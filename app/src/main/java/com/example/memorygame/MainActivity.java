@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        hideSystemUI();//call UI function below
+        hideSystemUI();//call Hide Navigation function below
 
     }
     // Called when the user click the StartPage_Start Button

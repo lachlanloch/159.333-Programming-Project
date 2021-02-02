@@ -3,9 +3,11 @@ package com.example.memorygame;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +25,17 @@ public class Gaming_page extends AppCompatActivity {
     private LinkItem preLinkItem;
     private List<Integer> clearedKeyList;
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
 
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+        }
+    }
     /**
      * Timer
      */
@@ -36,9 +48,6 @@ public class Gaming_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gaming_page); //error
-
-        AchiStatus accheck = ((AchiStatus)getApplicationContext());
-        int ac_00 = accheck.getAc_00();
 
         hideSystemUI();
         this.clearedKeyList = new ArrayList<>();
@@ -77,7 +86,8 @@ public class Gaming_page extends AppCompatActivity {
                     linkAdapter.notifyDataSetChanged();
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
-                        if(ac_00 != 1){ accheck.setAc_00(1);}
+                        ((AchiStatus)getApplicationContext()).getLevel(finalLevel1);
+                        ((AchiStatus)getApplicationContext()).pending(); //Pending Achievement
                         Intent pop_win = new Intent(Gaming_page.this, Popup_win.class);
                         pop_win.putExtra(GAME_LEVEL, finalLevel1);// for win to next level
                         startActivity(pop_win);
@@ -106,6 +116,8 @@ public class Gaming_page extends AppCompatActivity {
                     }
                     if (clearedKeyList.size() == gameLevel.getCardNum()) {
                         // TODO: the gamer win
+                        ((AchiStatus)getApplicationContext()).getLevel(finalLevel);
+                        ((AchiStatus)getApplicationContext()).pending(); //Pending Achievement
                         Intent pop_win = new Intent(Gaming_page.this, Popup_win.class);
                         pop_win.putExtra(GAME_LEVEL, finalLevel); // for win to next level
                         startActivity(pop_win);

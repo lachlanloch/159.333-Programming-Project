@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.memorygame">
-
+<!-- -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,14 +26,19 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".ViewDataActivity"
-            android:parentActivityName=".Level_page" />
+            android:parentActivityName=".Level_page"
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|keyboardHidden|orientation"/>
+
         <activity
             android:name=".Gaming_page"
-            android:parentActivityName=".ViewDataActivity" />
+            android:parentActivityName=".ViewDataActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Menu_page"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|keyboardHidden|orientation"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">

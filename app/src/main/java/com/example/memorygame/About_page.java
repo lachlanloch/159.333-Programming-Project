@@ -14,7 +14,7 @@ public class About_page extends AppCompatActivity {
         setContentView(R.layout.activity_about_page);
 
         hideSystemUI();
-        Intent about = getIntent();
+        //Intent about = getIntent();
     }
 
     //go back button

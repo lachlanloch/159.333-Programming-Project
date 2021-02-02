@@ -5,10 +5,12 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">#f0ef85</item>
     </style>
 
     <style name="AppTheme.CustomTheme">
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">#f0ef85</item>
     </style>
 
 </resources>
